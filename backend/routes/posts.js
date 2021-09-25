@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
     try {
         const data = await Post.find({
             user_Id: id,
-            createdAt: { $gte: dayjs(start_datetime).toDate(), $lt: dayjs(end_datetime).toDate() }  ///finding data from mongoDB using the parameters
+            createdAt: { $gte: dayjs(start_datetime).toDate(), $lte: dayjs(end_datetime).toDate() }  ///finding data from mongoDB using the parameters
         },
             { _id: 0, createdAt: 1, input_values: 1 });
 
